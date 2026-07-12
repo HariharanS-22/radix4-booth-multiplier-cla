@@ -268,7 +268,7 @@ The RTL design was validated using a comprehensive Verilog testbench in **Vivado
 
 A detailed project report describing the architecture, RTL implementation, FPGA synthesis, ASIC implementation, timing analysis, and experimental results is available below.
 
-📘 **Report:** [Radix-4_Booth_Multiplier_CLA_Report.pdf](reports/Radix4_Booth_Multiplier_Report.pdf)
+📘 **Report:** [Radix-4_Booth_Multiplier_CLA_Report.pdf](reports/Radix-4_Booth_Multiplier_CLA_Report.pdf)
 
 # 👨‍💻 Developer
 
