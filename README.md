@@ -139,9 +139,23 @@ The RTL design was validated using a comprehensive Verilog testbench in **Vivado
 
 # 🏭 ASIC Implementation (OpenLane - Sky130)
 
-## RTL → GDSII Flow
+## New Reproducible OpenLane Implementation
 
-### Floorplan
+A newer reproducible OpenLane implementation using the current OpenLane container environment and the **SKY130A** PDK (`sky130_fd_sc_hd`) was subsequently performed. The design was hardened under 40% and 70% core utilization targets with zero DRC/LVS violations, achieving post-route worst-path data arrival times of 6.76 ns (70% utilization) and 6.81 ns (40% utilization) under virtual-clock I/O timing constraints.
+
+> [!TIP]
+> Detailed implementation metrics, 40% vs. 70% comparative results, layout captures, and timing analyses are documented in [openlane/openlane_results.md](openlane/openlane_results.md).
+
+---
+
+## Previous OpenLane / VSD Environment Results (Historical)
+
+> [!NOTE]
+> The screenshots and metrics below represent an earlier historical implementation conducted in a predefined VSD/OpenLane environment.
+
+### RTL → GDSII Flow (Historical VSD Run)
+
+#### Floorplan
 
 <p align="center">
 <img src="docs/openlane_floorplan.png" width="700">
@@ -149,7 +163,7 @@ The RTL design was validated using a comprehensive Verilog testbench in **Vivado
 
 ---
 
-### Placement
+#### Placement
 
 <p align="center">
 <img src="docs/openlane_placement.png" width="700">
@@ -157,7 +171,7 @@ The RTL design was validated using a comprehensive Verilog testbench in **Vivado
 
 ---
 
-### Routing
+#### Routing
 
 <p align="center">
 <img src="docs/openlane_routing.png" width="700">
@@ -165,7 +179,7 @@ The RTL design was validated using a comprehensive Verilog testbench in **Vivado
 
 ---
 
-### Final GDSII Layout
+#### Final GDSII Layout
 
 <p align="center">
 <img src="docs/openlane_gds-ii.png" width="700">
@@ -173,7 +187,7 @@ The RTL design was validated using a comprehensive Verilog testbench in **Vivado
 
 ---
 
-## OpenLane Results
+### Previous VSD Run Metrics
 
 | Metric | Value |
 |---------|------:|
@@ -186,7 +200,7 @@ The RTL design was validated using a comprehensive Verilog testbench in **Vivado
 
 ---
 
-## Timing Summary
+### Previous VSD Run Timing Summary
 
 | Stage | Delay |
 |--------|------:|
@@ -216,11 +230,15 @@ The RTL design was validated using a comprehensive Verilog testbench in **Vivado
 
 # 📈 Performance Comparison
 
-| Platform | Technology | Delay | Area |
-|----------|------------|------:|------:|
-| Vivado | FPGA | **13.925 ns** | **93 LUTs** |
-| OpenLane | Sky130 | **11.96 ns** | **3968.81 μm²** |
-| Cadence | 45 nm | **1.278 ns** | **374.49 μm²** |
+| Platform | Technology | Timing Result | Area / Resource |
+|----------|------------|---------------|-----------------|
+| Vivado | FPGA | 13.925 ns critical path | 93 LUTs |
+| OpenLane (Clean SKY130A, 70%) | Sky130A | 6.76 ns post-route data arrival | 3971.31 μm² core area |
+| OpenLane (VSD Historical) | Sky130 | 11.96 ns reported in previous VSD flow | 3968.81 μm² cell area |
+| Cadence | 45 nm | 1.278 ns critical path | 374.49 μm² placement area |
+
+> [!NOTE]
+> These results come from different implementation flows, technologies, and area definitions, so the values should not be interpreted as a directly comparable benchmark.
 
 ---
 
@@ -230,7 +248,13 @@ The RTL design was validated using a comprehensive Verilog testbench in **Vivado
 .
 ├── rtl/              # Verilog RTL source files
 ├── testbench/        # Functional verification
-├── docs/             # Images used in README
+├── docs/             # Historical VSD OpenLane, Vivado & Cadence images
+├── docs_new/         # New OpenLane implementation screenshots
+│   ├── floorplan.png
+│   ├── placement.png
+│   └── final_gds.png
+├── openlane/         # OpenLane implementation documentation
+│   └── openlane_results.md
 ├── reports/          # Vivado & OpenLane reports
 └── README.md
 ```
