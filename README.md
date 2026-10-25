@@ -294,26 +294,3 @@ A detailed project report describing the architecture, RTL implementation, FPGA 
 
 📘 **Report:** [Radix-4_Booth_Multiplier_CLA_Report.pdf](reports/Radix-4_Booth_Multiplier_CLA_Report.pdf)
 
-# 👨‍💻 Developer
-
-**Saabiq U A**
-
-B.E. Electronics and Communication Engineering  
-**College of Engineering Guindy (Anna University)**
-
-### Areas of Interest
-
-- RTL Design
-- Computer Architecture
-- ASIC Physical Design
-- RISC-V Processor Design
-
----
-
-<div align="center">
-
-### ⭐ If you found this project interesting, consider giving it a Star!
-
-Made with ❤️ using Verilog, OpenLane & Cadence
-
-</div>
